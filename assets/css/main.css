@@ -1,0 +1,931 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; 
+    padding:0;
+    box-sizing: border-box;
+    outline: none; 
+    border:none;
+    text-decoration: none;
+    transition:all .2s linear;
+    transition:width none;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 5rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+    width:1rem;
+}
+
+html::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+    background:black;
+}
+.loader__container{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background: rgb(8, 7, 7);
+    top: 0;
+    left: 0;
+    visibility: visible;
+    z-index: 10000000;
+}
+.loader__container.active{
+    visibility: hidden;
+}
+.header{
+    position: relative;
+    width: auto;
+    height: 7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    color: white;
+}
+
+.header img{
+    width: 20rem;
+    height: auto;
+    cursor: pointer;
+}
+
+
+.header .btn__sign button{
+    width: 10rem;
+    height: 3rem;
+    border-radius: 10px;
+    color: white;
+    margin: 0 6rem;
+    cursor: pointer;
+    background:rgb(243, 169, 82);
+    z-index: -1;
+}
+
+/* login form */
+
+.login__form{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem 5rem;
+    background: rgba(8, 7, 7, 0.8);
+    overflow: hidden;
+    z-index: 10000000;
+    top: 0;
+    left: -100%;
+    transition: all 0.2s ease;
+}
+
+.login__form i{
+    position: absolute;
+    font-size: 4rem;
+    color: white;
+    top: 1.5rem;
+    right: 2rem;
+    cursor: pointer;
+}
+
+.login__form.active{
+    left: 0;
+}
+
+.login__form img{
+    padding-top: 2rem;
+    width: 25rem;
+    height: 15rem;
+}
+
+.login__form h1{
+    font-size: 4rem;
+    color: white;
+}
+
+.login__form h2{
+    font-size: 2rem;
+    color: white;
+}
+
+.login__form .form__group{
+    position: relative;
+    width: 40rem;
+    height: auto;
+    margin-top: 0.5rem;
+}
+
+  
+.login__form .form__group input {
+    padding: 15px;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    border: 1px solid #F3A952;
+    border-radius: 4px;
+    background-color: transparent;
+    color: white;
+    outline: none;
+    z-index: initial;
+}
+
+.login__form .form__group i{
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem;
+    font-size: 1.5rem;
+}
+
+.login__form button{
+    width: 12rem;
+    height: 3.5rem;
+    border-radius: 20px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    background:#F3A952;
+}
+
+.login__form h3{
+    font-size: 1.5rem;
+    color: #F3A952;
+}
+
+
+/* login form end */
+
+/* register form start */
+
+.register__form{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem 5rem;
+    background: rgba(8, 7, 7, 0.8);
+    overflow: hidden;
+    z-index: 10000000;
+    top: 0;
+    left: -100%;
+    transition: all 0.2s ease;
+}
+
+.register__form i{
+    position: absolute;
+    font-size: 4rem;
+    color: white;
+    top: 1.5rem;
+    right: 2rem;
+    cursor: pointer;
+}
+
+.register__form.active{
+    left: 0;
+}
+
+.register__form img{
+    padding-top: 2rem;
+    width: 25rem;
+    height: 15rem;
+}
+
+.register__form h1{
+    font-size: 4rem;
+    color: white;
+}
+
+.register__form h2{
+    font-size: 2rem;
+    color: white;
+}
+
+.register__form .form__group{
+    position: relative;
+    width: 40rem;
+    height: auto;
+    margin-top: 2rem;
+}
+
+  
+.register__form .form__group input {
+    padding: 15px;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    border: 1px solid #F3A952;
+    border-radius: 4px;
+    background-color: transparent;
+    color: white;
+    outline: none;
+    z-index: initial;
+}
+
+.register__form .form__group i{
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem;
+    font-size: 1.5rem;
+}
+
+.register__form button{
+    width: 12rem;
+    height: 3.5rem;
+    border-radius: 20px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    background:#F3A952;
+}
+
+.register__form h3{
+    font-size: 1.5rem;
+    color: #F3A952;
+}
+
+
+/* register form end  */
+
+/* Custom form khi validate */
+
+.register__form .form__group .error__message,
+.login__form .form__group .error__message{
+    color: red;
+}
+.login__form .invalid{
+    border: 1px solid red !important;
+}
+/* end custom */
+
+.container{
+    width: 100%;
+    height: 89vh;
+    position: relative;
+}
+
+.container video{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: -100;
+}
+
+/* fullscreen  */
+
+body:-webkit-full-screen { width: 100%; height: 100%; }
+body:-moz-full-screen { width: 100%; height: 100%; }
+body:-ms-full-screen { width: 100%; height: 100%; }
+body:full-screen { width: 100%; height: 100%; }
+
+/* end  */
+
+.container .cityrain__point__container {
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    background: transparent;
+    top: 20rem;
+    right: 45rem;
+    cursor: pointer;
+}
+.container .cityrain__point__container .cityrain__point{
+    position: absolute;
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 3px solid white;
+    border-radius: 50%;
+    top: 0;
+    right: 3rem;
+    cursor: pointer;
+}
+
+
+.container .cityrain__point__container .cityrain__point .point__circle{
+    position: absolute;
+    width: 2.3rem;
+    height: 2.3rem;
+    display: none;
+    border-radius: 50%;
+    background: rgb(243, 169, 82);
+}
+
+
+.container .cityrain__point__container .content{
+    position: absolute;
+    text-align: center;
+    display: none;
+    color: #fff;
+    width: 10rem;
+    height: auto;
+    padding: 0.5rem;
+    top: 4rem;
+    right: -0.5rem;
+    border-radius: 10px;
+    background-color: rgba(8, 3, 3,0.3);
+}
+.container .cityrain__point__container .content h1{
+    font-size: 1.5rem;
+}
+.container .cityrain__point__container .content .volume__point{
+    width: 100%;
+    height: 2rem;
+    display: none;
+}
+.container .cityrain__point__container .content .open{
+    display: block;
+}
+
+/* keyboard sound */
+.container .keyboard__point__container {
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    background: transparent;
+    top: 43rem;
+    left: 38rem;
+    cursor: pointer;
+}
+.container .keyboard__point__container .keyboard__point{
+    position: absolute;
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 3px solid white;
+    border-radius: 50%;
+    top: 0;
+    right: 3rem;
+    cursor: pointer;
+}
+
+
+.container .keyboard__point__container .keyboard__point .point__circle{
+    position: absolute;
+    width: 2.3rem;
+    height: 2.3rem;
+    display: none;
+    border-radius: 50%;
+    background: rgb(243, 169, 82);
+}
+
+
+.container .keyboard__point__container .content{
+    position: absolute;
+    text-align: center;
+    display: none;
+    color: #fff;
+    width: 10rem;
+    height: auto;
+    padding: 0.5rem;
+    top: 4rem;
+    right: -0.5rem;
+    border-radius: 10px;
+    background-color: rgba(8, 3, 3,0.3);
+}
+.container .keyboard__point__container .content h1{
+    font-size: 1.5rem;
+}
+.container .keyboard__point__container .content .volume__point{
+    width: 100%;
+    height: 2rem;
+    display: none;
+}
+.container .keyboard__point__container .content .open{
+    display: block;
+}
+
+/* keyboard sound end */
+
+.container .menu__mixmode{
+    position: absolute;
+    width: 4rem;
+    height: auto;
+    font-size: 2.5rem;
+    color: white;
+    border-radius: 10px;
+    top: 10rem;
+    right: 3rem;
+    background: rgb(24, 24, 24, 0.8);
+    text-align: center;
+}
+
+.container .menu__mixmode i{
+    margin: 2rem 0;
+    cursor: pointer;
+    position: relative;
+}
+
+
+.container .menu__mixmode i .name__item{
+    width: 10rem;
+    height: auto;
+    padding: 1rem;
+    font-size: 1.5rem;
+    position: absolute;
+    display: none;
+    background: rgb(24, 24, 24, 0.8);
+    border-radius: 10px;
+    top: -0.5rem;
+    left: -11rem;
+}
+
+.container .menu__mixmode i:hover,
+.container .menu__mixmode i:hover .name__item {
+    color: rgb(243, 169, 82);
+    display: block;
+}
+
+.container .details__mixmode{
+    position: absolute;
+    display: none;
+    color: white;
+    padding: 1rem;
+    width: 28rem;
+    height: 40rem;
+    top: 5rem;
+    right: 55rem;
+    border-radius: 20px;
+    background: rgb(24, 24, 24, 0.8);
+   
+}
+.container .details__mixmode>i{
+    position: absolute;
+    top: 0.5rem;
+    right: 1.5rem;
+    cursor: pointer;
+    font-size: 2.5rem;
+}
+
+.container .details__mixmode .menu__mood {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: center;
+    width: auto;
+    height: auto;
+    color: white;
+}
+.container .details__mixmode .menu__mood .active{
+    color: rgb(243, 169, 82)!important;
+}
+.container .details__mixmode .menu__mood .menu__mood--detail{
+    width: 8rem;
+    height: auto;
+    text-align: center;
+    border: 1px solid rgb(211, 190, 190);
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+}
+.container .details__mixmode .menu__mood .menu__mood--detail i{
+    width: auto;
+    height: auto;
+    padding: 2rem;
+    font-size: 3rem;
+    
+
+}
+.container .details__mixmode .menu__mood .menu__mood--detail h4{
+    font-size: 1rem;
+}
+
+.container .details__mixmode .volume__bar{
+    position: relative;
+    width: auto;
+    height: auto;
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.container .details__mixmode .volume__bar i{
+    font-size: 2rem;
+    text-align: center;
+}
+
+input[type="range"]{
+    accent-color: rgb(243, 169, 82);
+}
+
+.container .details__mixmode .volume__bar #volume{
+    width: 70%;
+    height: 3rem; 
+    background-color: rgb(243, 169, 82);
+    cursor: pointer;
+    z-index: 10000;
+   
+}
+
+.container .details__mixmode .sounds__container{
+    width: 100%;
+    height: auto;
+}
+
+.container .details__mixmode .sounds__container .sounds__container--item{
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin: 2.3rem 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container .details__mixmode .sounds__container .sounds__container--item input{
+    width: 70%;
+    height: auto;
+    cursor: pointer;
+}
+
+.container .templates__details{
+    position: absolute;
+    display: none;
+    color: white;
+    padding: 1.5rem;
+    width: 35rem;
+    height: 95vh;
+    top: -6rem;
+    right: 8rem;
+    scroll-margin: 1rem;
+    scroll-behavior: smooth;
+    border-radius: 20px;
+    background: rgb(24, 24, 24, 0.8);
+}
+.container .templates__details i{
+    position: absolute;
+    font-size: 2.5rem;
+    top: 0.5rem;
+    right: 1.5rem;
+    cursor: pointer;
+}
+.login__form>i:hover,
+.register__form>i:hover,
+.container .details__mixmode>i:hover,
+.container .templates__details i:hover{
+    color: #F3A952;
+}
+.container .open{
+    display: block;
+    transition: width 0.5s ease-in-out;
+}
+
+.container .templates__details .templates__details__container{
+    overflow-y: scroll;
+    border-radius: 10px;
+    width: 100%;
+    height: 88%;
+}
+/* custom scrollbar */
+
+.container .templates__details .templates__details__container::-webkit-scrollbar {
+    width: 6px;
+    display: none;
+    background-color: transparent;
+} 
+.container .templates__details .templates__details__container::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+.container .templates__details .templates__details--item{
+    width: auto;
+    height: 20rem;
+    margin-bottom: 1rem;
+    background: transparent;
+    border-radius: 10px;
+    z-index: -100;
+}
+.container .templates__details h1{
+    margin: 2rem 0;
+}
+.container .templates__details .templates__details--item img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.container .music__player__container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 80vh;
+}
+
+.container .music__player__container .music__player--control{
+    background: rgb(24, 24, 24, 0.8);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 0;
+    width: 20rem;
+    height: auto;
+   
+    
+}
+.container .music__player__container .music__player--control i{
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+
+.container .music__player__container .music__player--extra{
+    background: rgb(24, 24, 24, 0.8);
+    border-radius: 10px;
+    padding: 1rem 0;
+    margin-left: 1rem;
+    text-align: center;
+    width: 4rem;
+    height: auto;
+}
+
+.container .music__player__container .music__player--extra i{
+    position: relative;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+.container .music__player__container .music__player--extra i .music__player--extra--name{
+    width: 10rem;
+    height: auto;
+    color: white;
+    padding: 1rem;
+    font-size: 1.5rem;
+    position: absolute;
+    display: none;
+    background: rgb(24, 24, 24, 0.8);
+    border-radius: 10px;
+    top: -6rem;
+    right: -3.5rem;
+}
+.container .music__player__container .music__player--extra i:hover .music__player--extra--name,
+.container .music__player__container .music__player--control i:hover,
+.container .music__player__container .music__player--extra i:hover{
+    color: rgb(243, 169, 82);
+    display: block;
+}
+
+.container .btn__toggle__mode{
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 81vh;
+    left: 3rem;
+}
+
+.container .btn__toggle__mode .switch {
+    position: relative;
+    cursor: pointer;
+    width: 70px;
+    height: 35px;
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    background: rgb(24, 24, 24, 0.8);
+    border-radius: 100rem;
+    transition: background-color 0.25s linear;
+}
+
+.container .btn__toggle__mode .switch i:nth-child(1){
+    position: absolute;
+    color: white;
+    font-size: 2rem;
+    left: -5rem;
+}
+
+.container .btn__toggle__mode .switch i:nth-child(2){
+    position: absolute;
+    color: white;
+    font-size: 2rem;
+    top: 0.6rem;
+    right: 0.5rem;
+}
+
+.container .btn__toggle__mode .switch:after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: #fff;
+    top: 2px;
+    left: 4px;
+    transition: background-color 0.25s linear, transform 0.25s linear;
+}
+
+.container .btn__toggle__mode .switch-input {
+    display: none;
+}
+  
+.container .btn__toggle__mode .switch-input:checked + .switch {
+    background-color:  rgb(243, 169, 82);
+}
+  
+.container .btn__toggle__mode .switch-input:checked + .switch:after {
+    transform: translateX(33px);
+    background-color: white;
+}
+
+.container .btn__toggle__mode .switch-input:checked + .switch i:nth-child(1){
+    transform: translateX(6rem);
+    padding-top: 0.6rem;
+}
+
+.container .btn__toggle__mode .switch-input:checked + .switch i:nth-child(2){
+    transform: translateX(6rem);
+    padding-top: 0.6rem;
+}
+
+/* responsive */
+
+@media screen and (max-width: 1023px){
+    .container .cityrain__point__container {
+        top: 31rem;
+        right: 18rem;
+    }
+    .container .keyboard__point__container {
+        top: 50rem;
+        left: 20rem;
+    }
+    .container .details__mixmode{
+        top: 15rem;
+        right: 32%;
+    }
+    .container .templates__details{
+        z-index: 99999;
+    }
+    .container .open{
+        display: block;
+    }
+    .container .btn__toggle__mode{
+        top: 80.5vh;
+    }
+}
+@media screen and (max-width: 767px) {
+    .container .cityrain__point__container {
+        top: 31rem;
+        right: 18rem;
+    }
+    .container .keyboard__point__container {
+        top: 50rem;
+        left: 20rem;
+    }
+    .container .details__mixmode{
+        top: 9rem;
+        right: 25%;
+    }
+    .container .templates__details{
+        z-index: 99999;
+    }
+    .container .open{
+        display: block;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (max-width: 584px) {
+
+    .loader__container{
+        width: 100vw;
+        height: 100vh;
+    }
+    .loader__container.active{
+        visibility: hidden;
+    }
+    .header{
+        position: relative;
+        width: auto;
+        height: 7rem;
+    }
+    
+    .header img{
+        width: 20rem;
+        height: auto;
+    }
+
+    .header .btn__sign {
+        width: 11rem;
+        height: 3rem;
+        padding-right: 4%;
+    }
+
+    .header .btn__sign button{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+    .login__form{
+        width: 100vw;
+        height: 100vh;
+        padding: 10rem 2rem;
+    }
+    .login__form i{
+        position: absolute;
+        font-size: 4rem;
+        color: white;
+        top: 1.5rem;
+        right: 4rem;
+        cursor: pointer;
+    }
+    .login__form h1{
+        font-size: 3rem;
+    }
+    .login__form h3{
+        font: 1.5rem;
+    }
+    .login__form .form__group{
+        width: 28rem;
+    }
+   
+
+    .register__form{
+        width: 100vw;
+        height: 100vh;
+        padding: 10rem 2rem;
+    }
+    .register__form h1{
+        font-size: 3rem;
+    }
+    .register__form h2{
+        font: 1.5rem;
+    }
+    .register__form .form__group{
+        width: 28rem;
+        margin-bottom: 1rem;
+    }
+    .register__form i{
+        top: 1.5rem;
+        right: 4rem;
+    }
+
+    .container{
+        width: 100%;
+        height: calc(100vh - 70px);
+        position: relative;
+    }
+
+    .container video{
+        width: 100vw;
+        height: 100vh;
+    }
+    .container .cityrain__point__container {
+        top: 31rem;
+        right: 14rem;
+    }
+    .container .keyboard__point__container {
+        top: 40rem;
+        left: 3rem;
+    }
+
+    .container .details__mixmode{
+        width: 28rem;
+        height: 40rem;
+        top: 13rem;
+        right: 8rem;
+    }
+    .container .templates__details{
+        right: 1rem;
+        z-index: 99999;
+    }
+    .container .open{
+        display: block;
+    }
+
+    .container .music__player__container{
+        width: 100vw;
+        height: auto;
+        top: 80vh;
+    }
+    .container .btn__toggle__mode{
+        top: -5.2rem;
+        left: 48%;
+    }
+}

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/img/logo-dark.png" type="image/png">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <title>Lofi - Craft your focus enviroment</title>
+</head>
+<body>
+   
+    <div class="header">  
+            <img src="assets/img/logo.gif" alt="">      
+            <div class="btn__sign">
+                <button type="button">Login</button>
+            </div>      
+    </div>
+    <form action="" method="POST" class="login__form" id="login-form" >
+        <i class="fa-solid fa-xmark"></i>
+        <img src="assets/img/logo.gif" alt="%%%">
+        <h1>Welcome back!</h1>
+        <h2>Log in to your account</h2>
+       
+        <div class="form__group">
+                <input name="email" autocomplete="off" type="text" class="input__item--custom" id="username" placeholder="Enter your email" />
+                <span class="error__message"></span>
+        </div>
+        <div class="form__group">
+                <input name="password" autocomplete="off" type="password" class="input__item--custom" id="password" placeholder="Enter your password" />
+                <i class="fa-solid fa-eye"></i>
+                <span class="error__message"></span>
+        </div>       
+        <button type="submit">Login</button>
+        <h3>Forgot password?</h3>
+        <h3 style="color: white;">Don't have an account? 
+            <span style="color: #F3A952; cursor: pointer;" id="btn-register"> Sign up for free </span>
+        </h3>
+    </form>
+    <!-- register form start -->
+    <form action="" method="POST" class="register__form" id="register-form">
+        <i class="fa-solid fa-xmark"></i>
+        <img src="assets/img/logo.gif" alt="%%%">
+        <h1>Nice to meet you!</h1>
+        <h2>Sign up for free account</h2>
+       
+        <div class="form__group">
+            <input name="email" autocomplete="off" type="text" class="input__item--custom" id="user" placeholder="Username" />
+            <span class="error__message"></span>
+        </div>
+        <div class="form__group">
+            <input name="email" autocomplete="off" type="text" class="input__item--custom" id="email" placeholder="Email" />
+            <span class="error__message"></span>
+        </div>
+        <div class="form__group">
+            <input name="password" autocomplete="off" type="password" class="input__item--custom" id="password-register" placeholder="Password" />
+            <i class="fa-solid fa-eye"></i>
+            <span class="error__message"></span>
+        </div>
+        <span style="color: white">By signing up, you agree to our
+           
+        </span>
+        <span style="color: #F3A952">
+            Privacy Policy & Terms of Service
+        </span>
+        <button type="submit">Sign Up</button>
+       
+        <h3 style="color: white;">Already have an account? 
+            <span style="color: #F3A952; cursor: pointer;" id="btn-back-login-form">
+                Log In 
+            </span>
+        </h3>
+    </form>
+
+    <!-- register form end  -->
+    <div class="container">
+        <video autoplay muted loop controlsList = "nodownload">
+            <source src="assets/video/main-bg-day.mp4" type="video/mp4">
+        </video>
+        <audio id="audio" src=""></audio>
+        <div class="cityrain__point__container">
+            <div class="cityrain__point">
+                <div class="point__circle"></div>
+            </div>
+            <div class="content">
+                <h1>City Rain</h1>
+                <input type="range" name="volume" class="volume__point" value="0.5" step="0.01" max="1">
+            </div>
+        </div>
+        
+        <div class="keyboard__point__container">
+            <div class="keyboard__point">
+                <div class="point__circle"></div>
+            </div>
+            <div class="content">
+                <h1>KeyBoard</h1>
+                <input type="range" name="volume" class="volume__point" value="0.5" step="0.01" max="1">
+            </div>
+        </div>
+        <div class="menu__mixmode">   
+                <i class="fa-solid fa-square-poll-horizontal">
+                    <div class="name__item">
+                        Mixer
+                    </div>
+                </i>
+                <i class="fa-solid fa-bars-progress">
+                    <div class="name__item">
+                        Templates
+                    </div>
+                </i>
+                <i class="fa-solid fa-circle-half-stroke">
+                    <div class="name__item">
+                        Scenes
+                    </div>
+                </i>
+                <i class="fa-solid fa-vector-square">
+                    <div class="name__item">
+                        Tools
+                    </div>
+                </i>
+        </div>
+        <div class="details__mixmode ">
+            <i class="fa-solid fa-minus"></i>
+            <br />
+            <h1>Mood</h1>
+            <br />
+            <div class="menu__mood">
+                <div class="menu__mood--detail">
+                    <i class="fa-solid fa-moon"></i>
+                    <h4>Sleepy</h4>
+                </div>
+
+                <div class="menu__mood--detail ">
+                    <i class="fa-solid fa-guitar"></i>
+                    <h4>Jazzy</h4>
+                </div>
+
+                <div class="menu__mood--detail active">
+                    <i class="fa-solid fa-mug-saucer"></i>
+                    <h4>Chill</h4>
+                </div>
+            </div>
+            <div class="volume__bar">
+                <i class="fa-solid fa-volume-off"></i>
+                <input type="range" name="volume" id="volume" value="0.5" step="0.01" max="1">
+                <i class="fa-solid fa-volume-high"></i>
+            </div>
+            <br/>
+            <h1>Sounds</h1>
+            <div class="sounds__container">
+                <div class="sounds__container--item">
+                    <span>Keyboard</span>
+                    <audio src="assets/sounds/keyboard.mp3" loop></audio>
+                    <input type="range" name="volume" id="volume-keyboard"  class="volume__custom" value="0" step="0.01" max="1">
+                </div>
+                <div class="sounds__container--item">
+                    <span>City traffic</span>
+                    <audio src="assets/sounds/city-traffic.mp3" loop></audio>
+                    <input type="range" name="volume" id="volume-cityTraffic" class="volume__custom" value="0" step="0.01" max="1">
+                </div>
+                <div class="sounds__container--item">
+                    <span>City Rain</span>
+                    <audio src="assets/sounds/city-rain.mp3" loop></audio>
+                    <input type="range" name="volume" id="volume-cityRain" class="volume__custom" value="0" step="0.01" max="1">
+                </div>
+            </div>
+        </div>
+
+        <!-- Templates detais start -->
+        <div class="templates__details">
+            <i class="fa-solid fa-minus"></i>
+            <h1>Templates</h1>
+            <div class="templates__details__container">
+                <div class="templates__details--item">
+                    <img src="assets/img/main-bg.png" alt="">
+                </div>
+                <div class="templates__details--item">
+                    <img src="assets/img/exterior-bg.png" alt="">
+                </div>
+                <div class="templates__details--item">
+                    <img src="assets/img/kyoto-bg.png" alt="">
+                </div>
+                <div class="templates__details--item">
+                    <img src="assets/img/chill-bg.png" alt="">
+                </div>
+                <div class="templates__details--item">
+                    <img src="assets/img/honolulu-bg.png" alt="">
+                </div>
+                <div class="templates__details--item">
+                    <img src="assets/img/cafe-set-bg.png" alt="">
+                </div>
+                <div class="templates__details--item">
+                    <img src="assets/img/van-set-bg.png" alt="">
+                </div>
+            </div>
+           
+        </div>
+
+        <!-- Templates detais end -->
+        <div class="music__player__container">
+            <div class="music__player--control">
+                <i class="fa-solid fa-backward-fast"></i>
+                <i class="fa-solid fa-play" style="width: 15px;"></i>
+                <i class="fa-solid fa-forward-fast"></i>
+            </div>
+            <div class="music__player--extra">
+                <i class="fa-solid fa-volume-high">
+                    <div class="music__player--extra--name">
+                        Mute All
+                    </div>
+                </i>
+            </div>
+            <div class="music__player--extra">
+                <i class="fa-solid fa-expand" id="fullscreen"></i>
+            </div>
+        </div>
+        <div class="btn__toggle__mode">
+            <input type="checkbox" id="switch" class="switch-input" />
+            <label for="switch" class="switch">
+                <i class="fa-regular fa-sun"></i>
+                <i class="fa-regular fa-moon"></i>
+            </label>
+        </div>
+       
+    </div>
+    <!-- loader start  -->
+    <div class="loader__container">
+        <img src="assets/img/logo.gif" alt="%%%">
+    </div>
+    <!-- loader end  -->
+    <script type="module" src="assets/js/main.js"></script>
+   
+</body>
+</html>
