@@ -567,7 +567,6 @@ function rainModeOn(state){
         rangeCityRainSound.classList.toggle("open");
         isRainPointClicked = false;
     }else{
-        console.log(12312);
         isRained = true; 
         rangeCityRainSound.value = 0.5;
         volumeCityRain.value = rangeCityRainSound.value;
@@ -671,10 +670,10 @@ const app = {
                 isRained = false;
                 rainModeOn(isRainPointClicked);
                 rangeCityRainSound.classList.remove("open");
-            }else if(!isRainPointClicked){
-                isRainPointClicked = false;
+            }else{
                 isRained = true;
-                rainModeOn(isRainPointClicked);
+                rainMode(isRainPointClicked);
+                isRainPointClicked = true;
             }
         }
 
