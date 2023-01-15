@@ -64,7 +64,7 @@ let backgroundTemplate = "";
 let templateOn = false;
 let typeOfSong = 2;
 let isPlayed = false;
-let isRained = true;
+let isRained = false;
 let isRainPointClicked = false;
 let isKeyboardPointClicked = false;
 
@@ -421,9 +421,9 @@ darkModeButton.addEventListener('click',()=>{
     let isChecked = darkModeButton.checked;
     if(!templateOn){
         if(!isChecked){
-            !isRained?videoBackground.src = MAIN_BACKGROUND_NIGHT_RAIN:videoBackground.src = MAIN_BACKGROUND_NIGHT;
+            isRained?videoBackground.src = MAIN_BACKGROUND_NIGHT_RAIN:videoBackground.src = MAIN_BACKGROUND_NIGHT;
         }else{
-            !isRained?videoBackground.src = MAIN_BACKGROUND_DAY_RAIN:videoBackground.src = MAIN_BACKGROUND_DAY;     
+            isRained?videoBackground.src = MAIN_BACKGROUND_DAY_RAIN:videoBackground.src = MAIN_BACKGROUND_DAY;     
         }
     }else{
         if(!isChecked){
@@ -512,17 +512,19 @@ const listTemplates = [
 templateItem.forEach((item,index)=>{
     item.onclick = function(){
         if(index === 0){
+            console.log(isRained);
             templateOn = false;
             isRained?videoBackground.src = listTemplates[index].rain:videoBackground.src = listTemplates[index].path;
-            isRained = false;
+            //isRained = false;
             backgroundTemplate = videoBackground.src;
             darkModeItem = listTemplates[index].darkMode;
         }else{
+            console.log(isRained);
             templateOn = true;
             videoBackground.src = listTemplates[index].path;
             backgroundTemplate = videoBackground.src;
             darkModeItem = listTemplates[index].darkMode;
-            isRained = true;
+           
         }
         darkModeButton.checked = true;
     }
@@ -539,41 +541,51 @@ function rainMode(isClicked){
     if(darkModeButton.checked){
         if((cityRainSound.volume > 0) && !(isClicked) && (isRained) && !(templateOn)){
             videoBackground.src = MAIN_BACKGROUND_DAY_RAIN;
-            isRained = false;
+            //isRained = false;
         }   
         else if(((cityRainSound.volume === 0) || (isClicked)) && !(isRained) && !(templateOn)){
             videoBackground.src = MAIN_BACKGROUND_DAY;
-            isRained = true;
+            //isRained = true;
         }   
     }else{
         if((cityRainSound.volume > 0) && !(isClicked) && (isRained) && !(templateOn)){
             videoBackground.src = MAIN_BACKGROUND_NIGHT_RAIN;
-            isRained = false;
+            //isRained = false;
         }   
         else if(((cityRainSound.volume === 0) || (isClicked)) && !(isRained) && !(templateOn)){
             videoBackground.src = MAIN_BACKGROUND_NIGHT;
-            isRained = true;
+            //isRained = true;
         }
     }
 }
-
-cityRainPoint.onclick = function(){
-    if(isRainPointClicked){
-        rainMode(isRainPointClicked);
+function rainModeOn(state){
+    if(state){
+        isRained = false;
+        rainMode(state);
         cityRainSound.pause();
         volumeCityRain.value = 0;
         rangeCityRainSound.classList.toggle("open");
         isRainPointClicked = false;
-    }else{ 
+    }else{
+        console.log(12312);
+        isRained = true; 
         rangeCityRainSound.value = 0.5;
         volumeCityRain.value = rangeCityRainSound.value;
         cityRainSound.volume = rangeCityRainSound.value;
-        rainMode(isRainPointClicked);
+        rainMode(state);
         cityRainSound.play();
         rangeCityRainSound.classList.toggle("open");
         isRainPointClicked = true;
     }   
 }
+
+cityRainPoint.onclick = function(){
+    console.log(isRainPointClicked)
+    rainModeOn(isRainPointClicked);
+    // isRainPointClicked?isRainPointClicked = false:isRainPointClicked = true;
+    
+}
+
 
 keyboardPoint.onclick = function(){
     if(isKeyboardPointClicked){
@@ -635,10 +647,15 @@ const app = {
         rangeCityRainSound.oninput = function(){
             cityRainSound.volume = this.value;
             volumeCityRain.value = this.value;
-            rainMode(false);
+            //isRained = true;
+            rainMode(true);
             if(cityRainSound.volume === 0){
+                isRainPointClicked = true;
+                isRained = false;
+                console.log(isRainPointClicked)
+                rainModeOn(isRainPointClicked);
+                console.log(isRainPointClicked)
                 this.classList.remove("open");
-                isRainPointClicked = false;
             }
         }
 
@@ -647,12 +664,17 @@ const app = {
             cityRainSound.volume = this.value;
             rangeCityRainSound.value = this.value;
             rangeCityRainSound.classList.add("open");
-            rainMode(false);
-            if(cityRainSound.volume === 0){
-                rangeCityRainSound.classList.remove("open");
-                isRainPointClicked = false;
-            }else{
+            //isRained = true;
+            rainMode(true);
+            if(cityRainSound.volume === 0){       
                 isRainPointClicked = true;
+                isRained = false;
+                rainModeOn(isRainPointClicked);
+                rangeCityRainSound.classList.remove("open");
+            }else if(!isRainPointClicked){
+                isRainPointClicked = false;
+                isRained = true;
+                rainModeOn(isRainPointClicked);
             }
         }
 
