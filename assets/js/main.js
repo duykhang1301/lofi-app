@@ -576,7 +576,6 @@ function rainModeOn(state){
 }
 
 cityRainPoint.onclick = function(){
-    console.log(isRainPointClicked)
     rainModeOn(isRainPointClicked);
 }
 
@@ -646,9 +645,7 @@ const app = {
             if(cityRainSound.volume === 0){
                 isRainPointClicked = true;
                 isRained = false;
-                console.log(isRainPointClicked)
                 rainModeOn(isRainPointClicked);
-                console.log(isRainPointClicked)
                 this.classList.remove("open");
             }
         }
