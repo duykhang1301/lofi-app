@@ -10,7 +10,9 @@
     text-decoration: none;
     transition:all .2s linear;
     transition:width none;
+    
 }
+
 html{
     font-size: 62.5%;
     overflow-x: hidden;

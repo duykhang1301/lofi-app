@@ -418,10 +418,13 @@ function checkKeyDown(event){
 keyEventElement.addEventListener('keydown',checkKeyDown)
 
 
-//Che do darkMode
+//Che do darkModelet 
 darkModeButton.checked = true;
+let globalCheckDarkModeButton = true;
+
 darkModeButton.addEventListener('click',()=>{
     let isChecked = darkModeButton.checked;
+    globalCheckDarkModeButton = isChecked;
     if(!templateOn){
         if(!isChecked){
             isRained?videoBackground.src = MAIN_BACKGROUND_NIGHT_RAIN:videoBackground.src = MAIN_BACKGROUND_NIGHT;
@@ -434,6 +437,7 @@ darkModeButton.addEventListener('click',()=>{
         }
         else{
             videoBackground.src = backgroundTemplate;
+            console.log(backgroundTemplate);
         }
     }
 });
@@ -482,7 +486,7 @@ const listTemplates = [
     {
         path: "assets/video/main-bg-day.mp4",
         darkMode: "assets/video/main-bg-night.mp4",
-        rain: "assets/video/main-bg-day-rain.mp4"
+        rain: ["assets/video/main-bg-day-rain.mp4","assets/video/main-bg-night-rain.mp4"]
     },
     {
         path: "assets/video/exterior-day.mp4",
@@ -490,11 +494,11 @@ const listTemplates = [
     },
     {
         path: "assets/video/kyotostreet-day.mp4",
-        darkMode:""
+        darkMode:"assets/video/kyotostreet-night.mp4"
     },
     {
         path: "assets/video/lvr-day.mp4",
-        darkMode:""
+        darkMode:"assets/video/lvr-night.mp4"
     },
     {
         path: "assets/video/enviroment-day.mp4",
@@ -502,11 +506,11 @@ const listTemplates = [
     },
     {
         path: "assets/video/lofi-coffee-day.mp4",
-        darkMode:""
+        darkMode:"assets/video/lofi-coffee-night.mp4"
     },
     {
         path: "assets/video/coffe-chill-day.mp4",
-        darkMode:""
+        darkMode:"assets/video/coffe-chill-night.mp4"
     }
 
 ]
@@ -516,17 +520,35 @@ templateItem.forEach((item,index)=>{
     item.onclick = function(){
         if(index === 0){
             templateOn = false;
-            isRained?videoBackground.src = listTemplates[index].rain:videoBackground.src = listTemplates[index].path;
-            backgroundTemplate = videoBackground.src;
-            darkModeItem = listTemplates[index].darkMode;
+            if(isRained){
+                globalCheckDarkModeButton?videoBackground.src = listTemplates[index].rain[0]:videoBackground.src = listTemplates[index].rain[1];
+            }else{
+                if(globalCheckDarkModeButton){
+                    videoBackground.src = listTemplates[index].path;
+                    backgroundTemplate = videoBackground.src;
+                    darkModeItem = listTemplates[index].darkMode;
+                }else{
+                    videoBackground.src = listTemplates[index].darkMode;
+                    backgroundTemplate = listTemplates[index].path;
+                    darkModeItem = listTemplates[index].darkMode;
+                }
+            } 
+   
         }else{
             templateOn = true;
-            videoBackground.src = listTemplates[index].path;
-            backgroundTemplate = videoBackground.src;
-            darkModeItem = listTemplates[index].darkMode;
-           
+            if(globalCheckDarkModeButton){
+                console.log(globalCheckDarkModeButton)
+                videoBackground.src = listTemplates[index].path;
+                backgroundTemplate = videoBackground.src;
+                darkModeItem = listTemplates[index].darkMode;
+            }else{
+                console.log(globalCheckDarkModeButton)
+                videoBackground.src = listTemplates[index].darkMode;
+                backgroundTemplate = listTemplates[index].path;
+                darkModeItem = listTemplates[index].darkMode;
+            }    
         }
-        darkModeButton.checked = true;
+       
     }
 });
 
