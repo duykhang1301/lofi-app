@@ -512,14 +512,11 @@ const listTemplates = [
 templateItem.forEach((item,index)=>{
     item.onclick = function(){
         if(index === 0){
-            console.log(isRained);
             templateOn = false;
             isRained?videoBackground.src = listTemplates[index].rain:videoBackground.src = listTemplates[index].path;
-            //isRained = false;
             backgroundTemplate = videoBackground.src;
             darkModeItem = listTemplates[index].darkMode;
         }else{
-            console.log(isRained);
             templateOn = true;
             videoBackground.src = listTemplates[index].path;
             backgroundTemplate = videoBackground.src;
@@ -581,8 +578,6 @@ function rainModeOn(state){
 cityRainPoint.onclick = function(){
     console.log(isRainPointClicked)
     rainModeOn(isRainPointClicked);
-    // isRainPointClicked?isRainPointClicked = false:isRainPointClicked = true;
-    
 }
 
 
