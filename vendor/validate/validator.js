@@ -125,7 +125,7 @@ function Validator(options){
                 inputElement.oninput = function () {
                     var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
                     errorElement.innerText = '';
-                    errorElement.classList.remove('invalid');
+                    inputElement.classList.remove('invalid');
                 } 
             });
         });
