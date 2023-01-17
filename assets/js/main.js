@@ -113,19 +113,22 @@ function requireFullScreen(element) {
 
 Validator({
     form: '#login-form',
+    formGroupSelector: '.form__group',
     errorSelector: '.error__message',
     rules: [
     Validator.isRequired('#username'),
     Validator.isEmail("#username"),
     Validator.isRequired("#password"),
-    Validator.isMinLength('#password',6),
+    Validator.isMinLength('#password',6)
 ],
     onSubmit: function(data){
-        location.reload();
+        //location.reload();
+        console.log(data)
     }
 });
 Validator({
     form: '#register-form',
+    formGroupSelector: '.form__group',
     errorSelector: '.error__message',
     rules: [
     Validator.isRequired('#user'),
@@ -133,10 +136,10 @@ Validator({
     Validator.isRequired('#email'),
     Validator.isEmail("#email"),
     Validator.isRequired("#password-register"),
-    Validator.isMinLength('#password-register',6),   
+    Validator.isMinLength('#password-register',6)   
     ],
     onSubmit: function(data){
-       location.reload();
+        console.log(data)
     }
 });
 
