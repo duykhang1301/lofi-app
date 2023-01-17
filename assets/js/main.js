@@ -437,7 +437,6 @@ darkModeButton.addEventListener('click',()=>{
         }
         else{
             videoBackground.src = backgroundTemplate;
-            console.log(backgroundTemplate);
         }
     }
 });
@@ -536,13 +535,11 @@ templateItem.forEach((item,index)=>{
    
         }else{
             templateOn = true;
-            if(globalCheckDarkModeButton){
-                console.log(globalCheckDarkModeButton)
+            if(globalCheckDarkModeButton){    
                 videoBackground.src = listTemplates[index].path;
                 backgroundTemplate = videoBackground.src;
                 darkModeItem = listTemplates[index].darkMode;
             }else{
-                console.log(globalCheckDarkModeButton)
                 videoBackground.src = listTemplates[index].darkMode;
                 backgroundTemplate = listTemplates[index].path;
                 darkModeItem = listTemplates[index].darkMode;
